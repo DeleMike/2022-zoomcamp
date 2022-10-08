@@ -31,7 +31,7 @@ def predict():
         'default_probability':float(y_pred),
         'default':bool(default)
     }
-    return jsonify(y_pred)
+    return jsonify(result)
 
 
 if __name__ == "__main__":
