@@ -4,7 +4,7 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 
-model_file = 'model1.bin'
+model_file = 'model2.bin'
 dv_file = "dv.bin"
 print('loading model and dv...')
 
