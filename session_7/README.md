@@ -1,5 +1,5 @@
-# Session 6
+# Session 7
 
-## Working with DecisionTree, RandomForest, XGBoost
+## Introduction to BentoML
 
-[Comment on it](https://twitter.com/_Akindele_Mike/status/1581336646494326784?s=20&t=I2TpMvpolg0Alu_URKdWoA)
+[Comment on it](https://twitter.com/_Akindele_Mike/status/1583558294882643968?s=20&t=XkX5DuL9kqIWst68bsha_Q)
