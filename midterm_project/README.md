@@ -33,6 +33,6 @@ According to the CDC, heart disease is one of the leading causes of death for pe
 
 As described above, heart disease is one of the leading causes of death in most races, hence the problem we are solving is **identifying/detecting** a potential heart disease inflicted person and help them **prevent** it by getting some key information ranging from their food choices to lifetyle.
 
-## How to get Started with Model
+## How to get Started Using this Model
 
-TBA
+TBC
