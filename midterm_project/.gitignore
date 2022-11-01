@@ -1,2 +1,7 @@
 .ipynb_checkpoints/
+.elasticbeanstalk/
 __pycache__/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

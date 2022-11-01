@@ -52,6 +52,8 @@ A Flask app was created in `predict.py`, which can be deployed with any WSGI ser
 - notebook.ipynb: a Jupyter Notebook containing all of the Exploratory Data Analysis and model building.
 - train.py: a training script. It will train the best model found on notebook.ipynb and store one file: `xgb_model_with_dv_eta=0.1_max_depth=6_min_child_weight=1.bin` This file is already provided in this repo; running `train.py` should overwrite the file with new but identical ones, due to the code defining a seed for its random state.
 - predict.py: Flask app that receives a query and outputs a prediction.
+- predict-test.py: Contains test script to test model API service
+- service.py: Contains flow to test with BentoML
 
 ## How to get Started Using this Model
 
