@@ -33,6 +33,26 @@ According to the CDC, heart disease is one of the leading causes of death for pe
 
 As described above, heart disease is one of the leading causes of death in most races, hence the problem we are solving is **identifying/detecting** a potential heart disease inflicted person and help them **prevent** it by getting some key information ranging from their food choices to lifetyle.
 
+## Project Description
+
+For this midterm project, a binary classification model was trained on the Heart Disease dataset in order to predict the likelihood of a heart disease using some key indicators.
+
+4 models were trained: a Basic Logistic Rgegression Model, a Decision Tree, a Random Forest and a Gradient Boosting model. Out of the 3, Gradient Boosting was the model with the better performance (using the XGBoost library). The trained model is provided in the file `xgb_model_eta=0.1_max_depth=6_min_child_weight=1.bin`, which can be loaded with pickle.
+
+The exploratory data analysis and model selection was done with the help of a Jupyter Notebook, `notebook.ipynb`.
+
+The model training script was exported to `train.py`.
+
+A Flask app was created in `predict.py`, which can be deployed with any WSGI server. This project has been developed and tested with Gunicorn.
+
+## Files
+
+- README.md: the file you're reading right now.
+- heart_2020_cleaned.csv: the CSV file containing the Speed Dating dataset.
+- notebook.ipynb: a Jupyter Notebook containing all of the Exploratory Data Analysis and model building.
+- train.py: a training script. It will train the best model found on notebook.ipynb and store one file: `xgb_model_eta=0.1_max_depth=6_min_child_weight=1.bin` This file is already provided in this repo; running `train.py` should overwrite the file with new but identical ones, due to the code defining a seed for its random state.
+- predict.py: Flask app that receives a query and outputs a prediction.
+
 ## How to get Started Using this Model
 
 TBC
