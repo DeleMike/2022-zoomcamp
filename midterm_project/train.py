@@ -3,28 +3,15 @@
 
 # Mid Term Project 
 # Heart Disease Indicator
-# This notebook contains all data analysis and model building to help identify or indicate the likelihood of heart disease
+# This script contains the best model to help identify or indicate the likelihood of heart disease
 
 # import necessary libraries
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import xgboost as xgb
 import pickle
 
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score
-from sklearn.metrics import roc_curve
-from sklearn.metrics import auc
-from sklearn.metrics import mutual_info_score
-from sklearn.metrics import accuracy_score
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import export_text
-from sklearn.ensemble import RandomForestClassifier
-
 
 # Loading and Reading data
 print('Loading data...')
