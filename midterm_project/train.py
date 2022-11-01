@@ -9,6 +9,7 @@
 import pandas as pd
 import xgboost as xgb
 import pickle
+import bentoml
 
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction import DictVectorizer
@@ -64,9 +65,9 @@ val_dicts = df_val.to_dict(orient='records')
 X_val = dv.transform(val_dicts)
 
 # we have to convert our data to a form that can be processed by XGBoost
-features = dv.get_feature_names_out()
-dtrain = xgb.DMatrix(X_train, label=y_train, feature_names=features)
-dval = xgb.DMatrix(X_val, label=y_val, feature_names=features)
+# features = dv.get_feature_names_out()
+dtrain = xgb.DMatrix(X_train, label=y_train) # remove feature names to solve issue with bentoML
+dval = xgb.DMatrix(X_val, label=y_val)
 
 # the best model after tuning is
 xgb_params = {
@@ -93,7 +94,13 @@ eta = 0.1
 max_depth = 6
 min_child_weight = 1
 
-output_file = 'xgb_model_eta={}_max_depth={}_min_child_weight={}.bin'.format(eta, max_depth, min_child_weight)
+output_file = 'xgb_model_with_dv_eta={}_max_depth={}_min_child_weight={}.bin'.format(eta, max_depth, min_child_weight)
 with open(output_file, 'wb') as f_out:
     pickle.dump((dv, xgb_model), f_out)
+
+# save model using Bentoml
+bentoml.xgboost.save_model('heart_disease_risk_model', xgb_model,
+                           custom_objects={
+                               'dv':dv
+                           })
 print('Model has been saved as {}'.format(output_file))

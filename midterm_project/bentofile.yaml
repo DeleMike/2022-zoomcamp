@@ -1,0 +1,11 @@
+service: "service.py:service"
+labels:
+  owner: akindele-michael
+  project: zoomcamp-midterm
+include:
+- "*.py"
+python:
+  packages:
+    - xgboost
+    - sklearn
+    - pydantic

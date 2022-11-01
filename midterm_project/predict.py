@@ -6,7 +6,7 @@ from flask import request
 from flask import jsonify
 
 
-model_file = 'xgb_model_eta=0.1_max_depth=6_min_child_weight=1.bin'
+model_file = 'xgb_model_with_dv_eta=0.1_max_depth=6_min_child_weight=1.bin'
 print('loading model and dv...')
 
 with open(model_file, 'rb') as f_in:
