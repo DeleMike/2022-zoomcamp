@@ -54,7 +54,66 @@ A Flask app was created in `predict.py`, which can be deployed with any WSGI ser
 - predict.py: Flask app that receives a query and outputs a prediction.
 - predict-test.py: Contains test script to test model API service
 - service.py: Contains flow to test with BentoML
+- requirements.txt: Contains all python modules used for this project
+- Dockerfile: a dockerfile for containerizing the Flask app.
 
-## How to get Started Using this Model
+## Run the Code
 
-TBC
+To get started with this project:
+
+1) Install Conda on your platform. Follow [these steps](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#) if you have not installed it before.
+
+2) Create environment
+      - Create a new virtual environment with conda `conda create --name test_env python=3.8`
+
+      - activate your environment with `conda activate test_env`
+
+      - cd into the project folder and run `pip install -r requirements.txt`
+
+3) start the prediction server locally
+      - Run `predict.py` either directly or with a WSGI server for deployment. Use gunicorn or waitress-serve if you are on a Windows
+
+      - Run this code for quick testing from the terminal: `python predict.py`
+
+      - Run this code on a WSGI server (Gunicorn) from the terminal: `gunicorn --bind 0.0.0.0:9696 predict:app`
+
+      - Run this code on a WSGI server (Waitress-serve) from the terminal: `waitress-serve --listen 0.0.0.0:9696 predict:app`. You can simply do `pip install waitress` to install it in your environment
+
+      - Stop running either of these by typing `CTRL + C` on your keyboard.
+
+4) Test the API
+      - open `notebook_test_api.ipynb` and run the code there.
+      - open any API testing software like Postman or Thunder Client and put this in the address bar: `http://localhost:9696/predict` and check the notebook for a sample JSON data to pass to the body.
+
+5) After you're done, you may deactivate your virtual environment with: `conda deactivate.`
+
+## Docker
+
+1) [Install Docker](https://docs.docker.com/get-docker/)
+2) Build the image.
+      - `docker build -t heart-disease .`
+3) Run the docker image.
+      - `docker run -it --rm -p 9696:9696 heart-disease`
+4) Test the service locally.
+
+## AWS Elastic Beanstalk Deployment
+
+Please follow these steps to create a new app and environment in AWS EB Using pipenv shell:
+
+1) [Create](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) an AWS account.
+
+2) Install **awsebcli**: `pipenv install awsebcli`. If you don't have `pipenv` install it by using `pip install pipenv`
+
+3) After installing awsebcli, open **pipenv shell** using `pipenv shell`
+
+4) Now create with docker platform, choose a region and give it a suitable name. Example: `eb init -p docker -r eu-west-1 heart-disease`
+
+5) Run it locally by using: `eb local run --port 9696` (ensure to change docker file to gunicorn if you are not running on a Windows)
+
+6) Create Web Service with: `eb create heart-disease-checker-env`
+
+7) Copy the generated URL, open `predict-test.py` paste the URL in the `host` variable then test the API endpoint by running the script `python predict-test.py`. (change the values as you like to experiment and see different results)
+
+8) Kill Service after usage: `eb terminate heart-disease-checker-env`
+
+9) Enter `exit` to leave subshell in virtual environment.
