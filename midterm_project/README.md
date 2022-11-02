@@ -6,7 +6,7 @@ _[Original dataset found here](https://www.kaggle.com/datasets/kamilpytlak/perso
 
 Originally, the dataset come from the CDC (Centers for Disease Control and Prevention) and is a major part of the Behavioral Risk Factor Surveillance System (BRFSS), which conducts annual telephone surveys to gather data on the health status of U.S. residents.
 
-According to the CDC, heart disease is one of the leading causes of death for people of most races in the US (AAfrican Americans, American Indians and Alaska Natives, and white people). About half of all Americans (47%) have at least 1 of 3 key risk factors for heart disease: high blood pressure, high cholesterol, and smoking. Other key indicator include diabetic status, obesity (high BMI), not getting enough physical activity or drinking too much alcohol. Detecting and preventing the factors that have the greatest impact on heart disease is very important in healthcare. Computational developments, in turn, allow the application of machine learning methods to detect "patterns" from the data that can predict a patient's condition.
+According to the CDC, heart disease is one of the leading causes of death for people of most races in the US (African Americans, American Indians and Alaska Natives, and white people). About half of all Americans (47%) have at least 1 of 3 key risk factors for heart disease: high blood pressure, high cholesterol, and smoking. Other key indicator include diabetic status, obesity (high BMI), not getting enough physical activity or drinking too much alcohol. Detecting and preventing the factors that have the greatest impact on heart disease is very important in healthcare. Computational developments, in turn, allow the application of machine learning methods to detect "patterns" from the data that can predict a patient's condition.
 
 ## Attribute Information
 
@@ -31,13 +31,13 @@ According to the CDC, heart disease is one of the leading causes of death for pe
 
 ## Problem Description
 
-As described above, heart disease is one of the leading causes of death in most races, hence the problem we are solving is **identifying/detecting** a potential heart disease inflicted person and help them **prevent** it by getting some key information ranging from their food choices to lifetyle.
+As described above, heart disease is one of the leading causes of death in most races, hence the problem we are solving is **identifying/detecting**  likelihood of a heart disease and help them **prevent** it by notifying the user to probably change some of their lifestyles.
 
 ## Project Description
 
-For this midterm project, a binary classification model was trained on the Heart Disease dataset in order to predict the likelihood of a heart disease using some key indicators.
+For this midterm project, a binary classification model is trained on the Heart Disease dataset in order to predict the likelihood of a heart disease using some key indicators.
 
-4 models were trained: a Basic Logistic Rgegression Model, a Decision Tree, a Random Forest and a Gradient Boosting model. Out of the 3, Gradient Boosting was the model with the better performance (using the XGBoost library). The trained model is provided in the file `xgb_model_eta=0.1_max_depth=6_min_child_weight=1.bin`, which can be loaded with pickle.
+4 models were trained: a Basic Logistic Regression Model, a Decision Tree, a Random Forest and a Gradient Boosting model. Out of the 4, Gradient Boosting was the model with the better performance (using the XGBoost library). The trained model is provided in the file `xgb_model_eta=0.1_max_depth=6_min_child_weight=1.bin`, which can be loaded with pickle.
 
 The exploratory data analysis and model selection was done with the help of a Jupyter Notebook, `notebook.ipynb`.
 
@@ -64,7 +64,7 @@ To get started with this project:
 1) Install Conda on your platform. Follow [these steps](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#) if you have not installed it before.
 
 2) Create environment
-      - Create a new virtual environment with conda `conda create --name test_env python=3.8`
+      - Create a new virtual environment with conda `conda create --name test_env python=3.7.9`
 
       - activate your environment with `conda activate test_env`
 
@@ -90,7 +90,7 @@ To get started with this project:
 ## Docker
 
 1) [Install Docker](https://docs.docker.com/get-docker/)
-2) Build the image.
+2) Build the image using details from the `Dockerfile`.
       - `docker build -t heart-disease .`
 3) Run the docker image.
       - `docker run -it --rm -p 9696:9696 heart-disease`
