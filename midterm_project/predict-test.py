@@ -22,6 +22,24 @@ patient = {"bmi": 29.84,
  "kidneydisease": "no",
  "skincancer": "no"}
 
+#  {"bmi": 23.63,
+#   "smoking": "no",
+#   "alcohol_drinking": "no",
+#   "stroke": "yes",
+#   "physical_health": 0,
+#   "mental_health": 15,
+#   "diff_walking": "no",
+#   "sex": "female",
+#   "age_category": 11,
+#   "race": "other",
+#   "diabetic": "no",
+#   "physical_activity": "yes",
+#   "gen_health": 3,
+#   "sleep_time": 8,
+#   "asthma": "yes",
+#   "kidney_disease": "yes",
+#   "skin_cancer": "yes"}
+
 response = requests.post(url, json=patient).json()
 print(response)
 
