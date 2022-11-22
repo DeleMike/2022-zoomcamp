@@ -3,6 +3,11 @@
 An introduction to Deep Learning module.
 Talked about Transfer Learning, Dropout, Regularization, Data Augmentation, CNNs, etc.
 
+Get dataset here:
+
+    wget https://github.com/alexeygrigorev/dino-or-dragon/releases/download/data/dino-dragon.zip
+    unzip dino-dragon.zip
+
 ## Extra Resources used for Deep Learning
 
 * [Multi-GPU TensorFlow on Saturn Cloud](https://saturncloud.io/blog/tensorflow_intro/)
